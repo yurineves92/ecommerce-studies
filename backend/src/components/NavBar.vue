@@ -1,20 +1,18 @@
 <template>
-    <header class="flex justify-between items-center h-14 shadow bg-white">
-        <button class="p-4 text-gray-700">
+    <header class="flex justify-between items-center p-3 h-14 shadow bg-white">
+        <button @click="emit('toggle-sidebar')" class="flex items-center justify-center rounded transition-colors w-8 h-8 text-gray-700 hover:bg-black/10">
             <MenuIcon class="w-6"/>
         </button>
-        <div class="px-4">
-            <Menu as="div" class="relative inline-block text-left">
-                <div>
-                    <MenuButton class="flex items-center">
-                    <img src="https://randomuser.me/api/portraits/lego/3.jpg" class="rounded-full w-8 mr-2"/>
-                    Yuri Neves
-                    <ChevronDownIcon
-                        class="h-5 w-5 text-violet-200 hover:text-violet-100"
-                        aria-hidden="true"
-                    />
-                    </MenuButton>
-                </div>
+        
+        <Menu as="div" class="relative inline-block text-left">
+                <MenuButton class="flex items-center">
+                <img src="https://randomuser.me/api/portraits/lego/3.jpg" class="rounded-full w-8 mr-2"/>
+                Yuri Neves
+                <ChevronDownIcon
+                    class="h-5 w-5 text-violet-200 hover:text-violet-100"
+                    aria-hidden="true"
+                />
+                </MenuButton>
 
             <transition
                 enter-active-class="transition duration-100 ease-out"
@@ -31,7 +29,7 @@
                     <MenuItem v-slot="{ active }">
                         <button
                             :class="[
-                            active ? 'bg-indigo-500 text-white' : 'text-gray-900',
+                            active ? 'bg-indigo-600 text-white' : 'text-gray-900',
                             'group flex w-full items-center rounded-md px-2 py-2 text-sm',
                             ]"
                         >
@@ -46,7 +44,7 @@
                     <MenuItem v-slot="{ active }">
                         <button
                             :class="[
-                            active ? 'bg-indigo-500 text-white' : 'text-gray-900',
+                            active ? 'bg-indigo-600 text-white' : 'text-gray-900',
                             'group flex w-full items-center rounded-md px-2 py-2 text-sm',
                             ]"
                         >
@@ -61,8 +59,7 @@
                 </div>
                 </MenuItems>
             </transition>
-            </Menu>
-        </div>
+        </Menu>
     </header>
 </template>
 
@@ -70,6 +67,8 @@
 import { MenuIcon, LogoutIcon, UserIcon } from "@heroicons/vue/outline";
 import { ChevronDownIcon } from '@heroicons/vue/solid'
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
+
+const emit = defineEmits(['toggle-sidebar'])
 
 </script>
 
