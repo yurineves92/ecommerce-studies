@@ -18,6 +18,7 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import Sidebar from "./Sidebar.vue";
 import NavBar from "./NavBar.vue";
+import store from '../store';
 
 const sideBarOpened = ref(true);
 
@@ -26,6 +27,7 @@ function toogleSideBar(){
 }
 
 onMounted(() => {
+  store.dispatch('getUser');
   handleSideBarOpened();
   window.addEventListener('resize', handleSideBarOpened);
 });

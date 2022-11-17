@@ -68,8 +68,11 @@
 import { MenuIcon, LogoutIcon, UserIcon } from "@heroicons/vue/outline";
 import { ChevronDownIcon } from '@heroicons/vue/solid'
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
+import { useRouter } from "vue-router";
+
 import store from "../store";
-import router from "../router";
+
+const router = useRouter();
 
 const emit = defineEmits(['toggle-sidebar'])
 
